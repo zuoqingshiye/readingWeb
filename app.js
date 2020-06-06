@@ -21,10 +21,12 @@ app.set('view engine', 'html')
 
 var index = require('./routes/index');
 var marker = require('./routes/marker');
+var product = require('./routes/product');
 var myAccount = require('./routes/myAccount');
 
 app.use('/', index);
 app.use('/marker', marker);
+app.use('/product', product);
 app.use('/myAccount', myAccount);
 
 const run = (port = 3000, host = '') => {
@@ -39,7 +41,7 @@ const run = (port = 3000, host = '') => {
 }
 
 if (require.main === module) {
-  const port = 3000
+  const port = 2333
 
   const host = '0.0.0.0'
   run(port, host)

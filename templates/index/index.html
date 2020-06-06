@@ -4,11 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <!-- <title>Title</title> -->
-    <script type="text/javascript" src="js/jquery.min.js"></script>
-    <link rel="stylesheet" href="bootstrap3.3.7/css/bootstrap.min.css">
-    <script type="text/javascript" src="bootstrap3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <link rel="stylesheet" href="/bootstrap3.3.7/css/bootstrap.min.css">
+    <script type="text/javascript" src="/bootstrap3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/style.css">
     <style>
 
     </style>
@@ -18,6 +18,10 @@
     <div class="container">
         <!-- nav -->
         <section id="page-header-panel">
+
+        </section>
+
+        <section id="page-header-panel-log">
 
         </section>
 
@@ -43,6 +47,7 @@
     <script>
         $(document).ready(function () {
             $("#page-header-panel").load("pages/header.html");
+            $("#page-header-panel-log").load("pages/headerLog.html");
             $("#page-foot-panel").load("pages/footer.html");
         });
     </script>

@@ -92,6 +92,10 @@
   margin-bottom:0;
 }
 
+.product-image-group .product-image-item:not(:first-child)  {
+  margin-left: 20px;
+}
+
 
 /* myAccount-page */
 .myAccount-info{
