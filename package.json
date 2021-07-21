@@ -1,18 +1,38 @@
 {
-  "name": "game-app-express",
+  "name": "news-app-express",
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node app.js"
+    "start": "nodemon app.js",
+    "dev": "node app.js",
+    "test": "export NODE_ENV=test PORT=2333 && mocha 'test/test.js' --exit",
+    "cov": "export NODE_ENV=test PORT=2333 && nyc mocha 'test/test.js' --exit"
   },
   "dependencies": {
-    "body-parser": "~1.18.2",
+    "bcrypt": "^5.0.1",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
     "cookie-parser": "~1.4.3",
+    "cors": "^2.8.5",
     "debug": "~2.6.9",
-    "express": "~4.15.5",
+    "express": "^4.15.5",
+    "express-paginate": "^1.0.2",
+    "express-session": "^1.17.2",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^4.0.0",
+    "mongoose": "^5.13.3",
     "morgan": "~1.9.0",
+    "nodemon": "^2.0.7",
     "nunjucks": "^3.2.1",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^6.1.0",
     "pug": "2.0.0-beta11",
-    "serve-favicon": "~2.4.5"
+    "serve-favicon": "~2.4.5",
+    "should": "^13.2.3"
+  },
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "supertest": "^6.1.3"
   }
 }

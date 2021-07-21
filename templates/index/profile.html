@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- <title>Title</title> -->
+    <script type="text/javascript" src="/js/lib/jquery.min.js"></script>
+    <link href="/css/bootstrap-4.3.1.css" rel="stylesheet" /> 
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    {% include '../components/header.html' %}
+
+    <div class="container" style="height:100vh">
+        
+        <!-- home-page -->
+        <section class="page-content-panel" style="height:70%">
+
+            <div class="well myAccount-page" style="height:100%;margin-bottom:0">
+                <!-- myAccount-info -->
+                <div class="myAccount-info-panel">
+                    <h3>My Account <a class="setting" href="/setting"><img width="20" src="/images/setting.png"></a></h3>
+                    <div class="myAccount-info flex-wrap">
+                        <div class="myAccount-info-left flex-wrap flex-direction-column" style="flex:2">
+                            <img src="/images/avatar_img.jpg" alt="..." class="img-circle">
+                        </div>
+                        <div class="myAccount-info-right flex-wrap"" style=" flex:4">
+                            <form class="flex-wrap flex-between flex-direction-column">
+                                <div class="form-group">
+                                    <label for="userName" style="font-size: 25px; margin-right: 5px;">Name</label>
+                                    {{ user.name}}
+                                </div>
+                                <div class="form-group">
+                                    <label for="password" style="font-size: 25px; margin-right: 5px;">Password</label>
+                                    ******
+                                </div>
+                                
+                                    <button type="submit" class="btn-logOut"><a href="/logout">LogOut</a>
+                                    </button>
+                                
+                                
+                            </form>
+                        </div>
+                    </div>
+                    
+                </div>
+
+            
+            </div>
+        </section>
+        {% include '../components/footer.html' %}
+
+    </div>
+    <script>
+        
+    </script>
+</body>
+
+</html>

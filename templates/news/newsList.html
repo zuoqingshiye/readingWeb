@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Newsword - Responsive Blog Template</title>
+      <link rel="shortcut icon" href="/images/ficon.png">
+      <script src="/js/lib/jquery-3.3.1.min.js"></script>
+      <script src="/js/lib/layer/layer.js"></script>
+      <link rel="stylesheet" href="/css/bootstrap-4.3.1.css" type="text/css">
+      <link rel="stylesheet" href="/css/style.css" type="text/css">
+      <script src="/js/lib/annyang.min.js"></script>
+	   <script src="/js/voice.js"></script>
+   </head>
+   <body>
+     
+      {% include '../components/header.html' %}
+       <section> 
+         <div class="post_header">
+          <div class="container-fluid"> 
+            <div class="row"> 
+             <div class="col-lg-12"> 
+              <p class="display-8"> <a href="/">Home</a> / <a href="{{request.url}}">{{category}} News</a>  </p> 
+              <p class="display-7">{{category}} News</p> 
+             </div> 
+            </div> 
+           </div> 
+         </div>
+         
+        </section>
+
+      <section>
+         <div class="container-fluid">
+            <!-- .left content -->   
+            <div class="row">
+               <div class="col-lg-8">
+                  <!-- .life-style-post-text -->   
+                  {% for item in list %}
+                  <div class="subCard" data-category="1, 5" data-sort="Busy streets">
+                     <a href="/news/detail/{{item.id}}">
+                        <div class="row">
+                           <div class="card-img-left">
+                              <img src="{{ item.img }}" alt="ls-img"/>
+                           </div>
+                         
+                           <!-- .blog-text -->  
+                           <div class="card-text-right">
+                              <div>
+                                 <p class="display-4">{{ item.title }}</p>
+                                 <p class="post-date">Posted on {{ item.timeStr }} </p>
+                              </div>
+                              <div>
+                                 <p class ="display-6"> {{ item.desc }} </p>
+                              </div>
+                        </div>
+                                 				
+                        
+                        </div>               
+                     </a> 
+                  </div>
+                  {% endfor %}
+
+                  {% if pages.length %}
+                  <div class="pagetions">
+                     <div class="col-sm-2 col-md-2 text-left">
+                        <a href="#"><i class="fa fa-angle-left" aria-hidden="true"></i> Previous</a>
+                     </div>
+                     <div class="col-sm-8 col-md-8 text-center">
+                        <ul>
+                           {% for item in pages %}
+                              {% if page ==item.number  %}
+                                 <li><a href="{{item.url}}" class="active">{{item.number}}</a></li>
+                              {% else %}
+                               <li><a href="{{item.url}}">{{item.number}}</a></li>
+                              {% endif %}
+                           
+                           {% endfor %}
+                        </ul>
+                     </div>
+
+                     {% if hasMore %}
+                        <div class="col-sm-2 col-md-2 text-right">
+                           <a href="#">Next <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                        </div>
+                     {% endif %}
+                  </div>
+                  {% endif %}
+
+               </div>
+               <div class="col-sm-4 col-md-4">
+                  <!-- <section class="add">
+                     <div class="col-md-12 border">
+                       <img src="/images/side-banner.jpg" alt="side-banner"/>
+                     </div>
+                  </section> -->
+                  {% include '../components/leftPanel.html' %}
+                </div>
+            </div>
+            
+            <!-- /.left content -->    
+            <!-- .right content -->   
+            
+            <!-- /.right content -->  
+         </div>
+      </section>
+     
+      {% include '../components/footer.html' %}
+      <div class="right-set-box" id='modal-button'><img width="40" src="/images/setting.png"></div> 
+
+      <script src="/js/modal.js"></script>
+      <!-- jQuery -->
+      <!-- Bootstrap Core JavaScript -->
+      <!-- <script src="http://cdn.bootstrapmb.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> -->
+
+   </body>
+</html>
+

@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light"><a class="navbar-brand" href="/"><img src="/images/logo.png"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+
+        <ul class="navbar-nav mr-auto">
+        {% for item in categorys %}
+            <li class="nav-item"> <a class="nav-link" href="/news/list?category={{item}}">{{item}}</a> </li>
+        {% endfor %}
+        </ul>
+        <div class="header-right">
+
+        {% if (user) %}
+            <a style="margin-right: 10px;" href="/profile"> {{user.name}}</a>
+        {% else %}
+            <a style="margin-right: 10px;" href="/login"> signin</a>
+        {% endif %}
+        
+        <form 
+         action="/news/list" method="GET"
+         class="form-inline my-2 my-lg-0" style="display: inline-block;">
+          <input class="form-control mr-sm-2" type="search" name='title' id="Search"  placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" id="SearchBt" type="submit">Search</button>
+        </form>
+        <div class="tooltip-wrap">
+            <img class="pointer"  onclick="voiceStart()" height="30" src="/images/voice.png">
+            <span class="tooltip-content">Say: search ...</br>e.g: search gun</span>
+		    <span class="voice-radio pointer headerBox" onclick="voiceEnd()"></span>
+        </div>
+        
+        
+		
+    </div>
+        
+    </div>
+</nav>

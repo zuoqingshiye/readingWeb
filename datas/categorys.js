@@ -1,0 +1,1 @@
+module.exports =  ["US", "World", "Politics","Sprots","Technology","Health"]

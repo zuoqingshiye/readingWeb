@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head> 
+  <meta charset="UTF-8" /> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1" /> 
+  <title>Untitled Document</title> 
+  <script src="/js/lib/jquery-3.3.1.min.js"></script>
+  <script src="/js/lib/layer/layer.js"></script>
+  <!-- Bootstrap --> 
+  <link rel="stylesheet" href="/css/bootstrap-4.3.1.css" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <script src="/js/lib/annyang.min.js"></script>
+  <script src="/js/voice.js"></script>
+ </head> 
+ <body> 
+
+	{% include '../components/header.html' %}
+
+  <section> 
+   <div class="post_header"> 
+    <div class="container-fluid"> 
+     <div class="row"> 
+      <div class="col-lg-12"> 
+       <p class="display-8"> <a href="/">Home</a> / <a href="/news/list?category={{item.category}}">{{item.category}}</a> / <a href="{{request.url}}">Article</a>  </p> 
+       <p class="display-7">{{item.title}}</p> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+  </section>
+  <section> 
+   <div class="container-fluid"> 
+    <div class="row"> 
+     <div class="col-lg-8"> 
+      <div class="article"> 
+       <img src="{{item.img}}" class="img-large" alt="Placeholder image" /> 
+	   <p>
+		{% for tag in item.tags %}
+		   <span class="tag-label label-primary"> <a href="/news/list?tag={{tag}}">{{tag}}</a></span>
+		{% endfor %}
+		</p>
+	   {{ item.content | safe }}
+      </div> 
+      <div id="comment"> 
+       <p class="comment"></p> 
+       <p class="display-9">Comments</p> 
+       <div class="subCard"> 
+        <div class="card-img-left-profile"> 
+         <img src="/images/comment-img1.jpg" class="img-profile" alt="Placeholder image" /> 
+        </div> 
+        <div class="card-text-right"> 
+         <div> 
+          <p class="display-9">Brandon Kelley</p> 
+          <p class="display-8">Posted on July 22, 2020</p> 
+         </div> 
+         <div> 
+          <p class="display-6">It’s a tribute to Iowa musicians that Red Cedar features Iowa Composers and promotes Iowa Arts. I learn so much at every concert.</p> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="subCard"> 
+        <div class="card-img-left-profile"> 
+         <img src="/images/comment-img2.jpg" class="img-profile" alt="Placeholder image" /> 
+        </div> 
+        <div class="card-text-right"> 
+         <div> 
+          <p class="display-9">Will Cook</p> 
+          <p class="display-8">Posted on July 23, 2020</p> 
+         </div> 
+         <div> 
+          <p class="display-6">Wonderful evening of great music. Thanks for the insights. It’s like being in New York—maybe better!</p> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <div id="leave_comment"> 
+       <p class="display-9">Leave a comment</p> 
+       <form action="#" method="post" id="commentform" class="comment-form"> 
+        <p class="comment-form-author"><input id="author" name="author" value="" size="30" placeholder="Name" type="text" /></p> 
+        <p class="comment-form-comment"><textarea id="write_comment" name="comment" cols="45" rows="8" placeholder="Comment" aria-required="true"></textarea></p> 
+        <p class="form-submit"><input name="submit" id="submit" class="btn btn-secondary" value="send messages" type="submit" /> </p> 
+       </form> 
+      </div> 
+     </div> 
+     <div class="col-sm-4 col-md-4">
+		<!-- <section class="add">
+		   <div class="col-md-12 border">
+			  <img src="/images/side-banner.jpg" alt="side-banner"/>
+		   </div>
+		</section> -->
+		{% include '../components/leftPanel.html' %}
+	 </div>
+    </div> 
+   </div> 
+  </section> 
+  {% include '../components/footer.html' %}
+
+  <div class="right-set-box" id='modal-button'><img width="40" src="/images/setting.png"></div> 
+
+  <script src="/js/modal.js"></script>
+  
+ </body>
+</html>

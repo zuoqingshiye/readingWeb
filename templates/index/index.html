@@ -1,56 +1,367 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8">
-    <!-- <title>Title</title> -->
-    <script type="text/javascript" src="/js/jquery.min.js"></script>
-    <link rel="stylesheet" href="/bootstrap3.3.7/css/bootstrap.min.css">
-    <script type="text/javascript" src="/bootstrap3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="/css/bootstrap.css">
-    <link rel="stylesheet" href="/css/style.css">
-    <style>
-
-    </style>
-</head>
-
-<body>
-    <div class="container">
-        <!-- nav -->
-        <section id="page-header-panel">
-
-        </section>
-
-        <section id="page-header-panel-log">
-
-        </section>
-
-        <!-- home-page -->
-        <section class="page-content-panel">
-            <div class="home-page">
-                <h4 align="center">What we have is more than you expected</h4>
-                <p align="center">Ant Design, a design language for background applications, is refined by Ant UED Team
-                </p>
-                <p align="center"> Ant Design, a design language for background applications</p>
-                <img src="/images/photo-wall.jpeg" class="img-responsive center-block" alt="Responsive image">
-            </div>
-        </section>
-
-        <!-- foot-page -->
-        <section id="page-foot-panel">
-
-        </section>
-
-
-
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Untitled Document</title>
+    <!-- Bootstrap -->
+	<script src="js/lib/jquery-3.3.1.min.js"></script>
+	<script src="js/lib/layer/layer.js"></script>
+	<link rel="stylesheet" href="/css/bootstrap-4.3.1.css" type="text/css">
+	<link rel="stylesheet" href="/css/style.css" type="text/css">
+	<script src="/js/lib/annyang.min.js"></script>
+	<script src="js/voice.js"></script>
+	<!-- <script src="js/bootstrap.min.js"></script> -->
+  </head>
+  <body>
+	  <!-- body code goes here -->
+	  {% include '../components/header.html' %}
+  <section>
+	<div class="container-fluid" id = "Breaking News">
+		<div class="col-lg-12">
+			<div class="row">
+				<p class="title h5">Breaking News</p>
+			</div> 
+		</div>
+	 
+   	 <div class="row">
+	    <div class="col-lg-3">
+			<div class="card col-md-4 col-lg-12"> 
+				<img class="card-img-top" src="images/enter-img.jpg" alt="Card image cap">
+				<div class="card-body">
+					<h5 class="card-title">Family trip from the UK to France: Ferry & Plane</h5>
+				</div>
+			</div>
+      	</div>
+		<div class="col-lg-3">
+			<div class="card col-md-4 col-lg-12"> 
+				<img class="card-img-top" src="images/enter-img2.jpg" alt="Card image cap">
+				<div class="card-body">
+					<h5 class="card-title">Ikea refuses to recall its killer furniture</h5>
+				</div>
+			</div>
+      	</div>
+		<div class="col-lg-3">
+			<div class="card col-md-4 col-lg-12"> 
+				<img class="card-img-top" src="images/enter-img3.jpg" alt="Card image cap">
+				<div class="card-body">
+					<h5 class="card-title">Schools without walls: Lessons in outdoor education</h5>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-3">
+			<div class="card col-md-4 col-lg-12"> 
+				<img class="card-img-top" src="images/enter-img4.jpg" alt="Card image cap">
+				<div class="card-body">
+					<h5 class="card-title">Icy spot on I80 causes single-vehicle accident</h5>
+				</div>
+			</div>
+		</div>
     </div>
-    <script>
-        $(document).ready(function () {
-            $("#page-header-panel").load("pages/header.html");
-            $("#page-header-panel-log").load("pages/headerLog.html");
-            $("#page-foot-panel").load("pages/footer.html");
-        });
-    </script>
-</body>
+  </div>  
+  </section>
+  <section>
+    <div class="container-fluid" id="Category">
+    <div class="row">
+	  <div class="col-sm-8 col-md-8">
+		<div class="row" id="US">
+			<p class="title h5">
+				<a href="/news/list?category=US">
+					US
+				</a>
+			</p>
+			{% for item in USItems %}
+				<div class="subCard">
+					<a style="width: 100%;" href="/news/detail/{{item.id}}">
+					<div class="card-img-left">
+						<img src="{{ item.img }}"   alt="Placeholder image"> 
+					</div>
+					<div class="card-text-right">
+						<div>
+							<p class="display-4">{{ item.title }}</p>
+							<p class="post-date">Posted on {{ item.timeStr }} </p>
+						</div>
+						<div>
+							<p class ="display-6"> {{ item.desc }} </p>
+						</div>
+					</div>
+					</a>
+				</div>
+			{% endfor %}
+			
+	   </div>
+		<div class="row" id="World">
+			<p class="title h5">
+				<a href="/news/list?category=World">
+					WORLD
+				</a>
+			</p>
+			{% for item in WorldsItems %}
+				<div class="subCard">
+					<div class="card-img-left">
+						<img src="{{ item.img }}"   alt="Placeholder image"> </div>
+						<div class="card-text-right">
+							<div>
+								<p class="display-4">{{ item.title }}</p>
+							<p class="post-date">Posted on {{ item.timeStr }} </p>
+							</div>
+							<div>
+								<p class ="display-6"> {{ item.desc }} </p>
+							</div>
+					</div>
+				</div>
+			{% endfor %}
+	    </div>
+		<div class="row" id="Politics" >
+			<p class="title h5">
+				<a href="/news/list?category=Politics">
+					POLITICS
+				</a>
+			</p>
+			{% for item in PoliticsItems %}
+				<div class="subCard">
+					<div class="card-img-left">
+						<img src="{{ item.img }}"  alt="Placeholder image"> 
+					</div>
+					<div class="card-text-right">
+							<div>
+								<p class="display-4">{{ item.title }}</p>
+								<p class="post-date">Posted on {{ item.timeStr }} </p>
+							</div>
+							<div>
+								<p class ="display-6"> {{ item.desc }} </p>
+							</div>
+					</div>
+				</div>
+			{% endfor %}
+	    </div>
+      </div>
+      <div class="col-sm-4 col-md-4">
+		<!-- <section>
+			<div class="owl-carousel owl-theme carousel">
+				<section class="add">
+					<div class="col-md-12 border">
+					   <img src="/images/side-banner.jpg" alt="side-banner"/>
+					</div>
+				 </section>
+			</div>
+		</section> -->
+		{% include '../components/leftPanel.html' %}
+	 </div>
+  	</div>
+  </div>
+  </section>
+  <section>
+    <div class="container-fluid" id="VedioSection"> 
+			<div class="row col-lg-12">
+				<p class="title h5">VEDIO</p>
+			 </div>  
+			 <div class="row">
+			   <div class="col-lg-8">
+				 <div id="vedio">
+				   <div class="vedio_frame_left">
+					   <iframe class="vedio" src="https://www.youtube.com/embed/VhBw9QG5VqY"></iframe>
+				   </div>
+					  
+				</div>
+			   </div>
+			   <div class="col-lg-4">
+				<div id="vedio_list">
+					<div class="list scroll">
+					  <ul class="list-group"> 
+						  <li class="smallCard" id ="vedio1">
+							<div class="small-card-img-left"><img src="images/small-v1.jpg" class="img-fluid-small" alt="Placeholder image">
+							</div>
+							   <div class="card-text-right">
+								<div >
+									<p class="display-11">Bennington pontoons expands to new facilities</p>
+									<p class="post-date">Posted on July 22, 2020</p>
+							  </div>
+								 </div>
+						 </li>
+						 <li class="smallCard" id ="vedio2">
+							<div class="small-card-img-left"><img src="images/small-v2.jpg" class="img-fluid-small" alt="Placeholder image">
+							</div>
+							   <div class="card-text-right">
+								<div>
+									<p class="display-11">Would you feed your baby breast milk?</p>
+									<p class="post-date">Posted on July 22, 2020</p>
+							  </div>
+								 </div>
+						 </li>
+						 <li class="smallCard" id ="vedio3">
+							<div class="small-card-img-left"><img src="images/small-v3.jpg" class="img-fluid-small" alt="Placeholder image">
+							</div>
+							   <div class="card-text-right">
+								<div>
+									<p class="display-11">British Airways plans app-based travel pass</p>
+									<p class="post-date">Posted on July 22, 2020</p>
+							  </div>
+								 </div>
+						 </li>
+						 <li class="smallCard" id ="vedio4">
+							<div class="small-card-img-left"><img src="images/small-v4.jpg" class="img-fluid-small" alt="Placeholder image">
+							</div>
+							   <div class="card-text-right">
+								<div>
+									<p class="display-11">Biden declines to call for Cuomo to resign</p>
+									<p class="post-date">Posted on July 22, 2020</p>
+							  </div>
+								 </div>
+						 </li>
+						<li class="smallCard" id ="vedio5">
+							<div class="small-card-img-left"><img src="images/small-v5.jpg" class="img-fluid-small" alt="Placeholder image">
+							</div>
+							   <div class="card-text-right">
+								<div>
+									<p class="display-11">Things to know before the COVID-19 vaccine</p>
+									<p class="post-date">Posted on July 22, 2020</p>
+							  </div>
+								 </div>
+						 </li>
+					  </ul>
+					</div>
+				  </div>
+			   </div>
+			</div>
+  	</div>
+  </section>
+  <section>
+    <div class="container-fluid" id="subCategory">   
+		<div class="row">
+		<div class="col-lg-4">
+			<p class="title h5">SPORTS</p>
+			<div class="owl-carousel owl-theme carousel">
+				<div>
+					<div class="weghiet">
+					  <div class="col-sm-4 col-md-4 pad">
+						 <img src="/images/inimgsmall13.jpg" alt="inimgsmall">
+					  </div>
+					  <div class="col-sm-8 col-md-8 pad">
+						 <h4>How Parents Can Pick The Best Sport For Their Kids</h4>
+						 <span class="post-date">Posted On July 22, 2020</span>      
+						 <span class="post-comment"><i class="fa fa-comments-o" aria-hidden="true"></i> 100</span>      				
+					  </div>
+				   </div>
+				   
+				   <div class="weghiet">
+					  <div class="col-sm-4 col-md-4 pad">
+						 <img src="/images/inimgsmall14.jpg" alt="inimgsmall3">
+					  </div>
+					  <div class="col-sm-8 col-md-8 pad">
+						 <h4>Good, bad, crazy ideas for how to resume sports </h4>
+						 <span class="post-date">Posted On December 22, 2020</span>      
+						 <span class="post-comment"><i class="fa fa-comments-o" aria-hidden="true"></i> 100</span>      				
+					  </div>
+				   </div>
+				   
+				   <div class="weghiet">
+					  <div class="col-sm-4 col-md-4 pad">
+						 <img src="/images/inimgsmall15.jpg" alt="inimgsmall3">
+					  </div>
+					  <div class="col-sm-8 col-md-8 pad">
+						 <h4>Running Camps - NIKE Sports Camps</h4>
+						 <span class="post-date">Posted On July 22, 2020</span>      
+						 <span class="post-comment"><i class="fa fa-comments-o" aria-hidden="true"></i> 100</span>      				
+					  </div>
+				   </div>	 
+				</div>
+				<div>
+				</div>
+			 </div>
+		</div>
+		<div class="col-lg-4">
+			<p class="title h5">TECHNOLOGY</p>
+			<div class="owl-carousel owl-theme carousel">
+				<div>
+					<div class="weghiet">
+					  <div class="col-sm-4 col-md-4 pad">
+						 <img src="/images/inimgsmall16.jpg" alt="inimgsmall">
+					  </div>
+					  <div class="col-sm-8 col-md-8 pad">
+						 <h4>The Latest Car Technology: A Harry Potter Meets Tesla </h4>
+						 <span class="post-date">Posted On July 22, 2020</span>      
+						 <span class="post-comment"><i class="fa fa-comments-o" aria-hidden="true"></i> 100</span>      				
+					  </div>
+				   </div>
+				   
+				   <div class="weghiet">
+					  <div class="col-sm-4 col-md-4 pad">
+						 <img src="/images/inimgsmall17.jpg" alt="inimgsmall3">
+					  </div>
+					  <div class="col-sm-8 col-md-8 pad">
+						 <h4>Apple Is Trying to Kill Web Technology </h4>
+						 <span class="post-date">Posted On July 22, 2020</span>      
+						 <span class="post-comment"><i class="fa fa-comments-o" aria-hidden="true"></i> 100</span>      				
+					  </div>
+				   </div>
+				   
+				   <div class="weghiet">
+					  <div class="col-sm-4 col-md-4 pad">
+						 <img src="/images/inimgsmall18.jpg" alt="inimgsmall3">
+					  </div>
+					  <div class="col-sm-8 col-md-8 pad">
+						 <h4>TSM: 3 Tech Stocks Making All-Time Highs</h4>
+						 <span class="post-date">Posted On July 22, 2020</span>      
+						 <span class="post-comment"><i class="fa fa-comments-o" aria-hidden="true"></i> 100</span>      				
+					  </div>
+				   </div>	 
+				</div>
+				<div>
+				</div>
+			 </div>
+		</div>
+		<div class="col-lg-4">
+			<p class="title h5">HEALTH</p>
+			<div class="owl-carousel owl-theme carousel">
+				<div>
+					<div class="weghiet">
+					  <div class="col-sm-4 col-md-4 pad">
+						 <img src="/images/inimgsmall19.jpg" alt="inimgsmall">
+					  </div>
+					  <div class="col-sm-8 col-md-8 pad">
+						 <h4>Health coaching is effective. Should you try it?</h4>
+						 <span class="post-date">Posted On July 22, 2016</span>      
+						 <span class="post-comment"><i class="fa fa-comments-o" aria-hidden="true"></i> 100</span>      				
+					  </div>
+				   </div>
+				   
+				   <div class="weghiet">
+					  <div class="col-sm-4 col-md-4 pad">
+						 <img src="/images/inimgsmall20.jpg" alt="inimgsmall3">
+					  </div>
+					  <div class="col-sm-8 col-md-8 pad">
+						 <h4>Nutrition in Health Focus Could saves Millions of Lives</h4>
+						 <span class="post-date">Posted On December 22, 2016</span>      
+						 <span class="post-comment"><i class="fa fa-comments-o" aria-hidden="true"></i> 100</span>      				
+					  </div>
+				   </div>
+				   
+				   <div class="weghiet">
+					  <div class="col-sm-4 col-md-4 pad">
+						 <img src="/images/inimgsmall21.jpg" alt="inimgsmall3">
+					  </div>
+					  <div class="col-sm-8 col-md-8 pad">
+						 <h4>CVS adding several COVID-19 rapid test sites in North Texas</h4>
+						 <span class="post-date">Posted On December 22, 2016</span>      
+						 <span class="post-comment"><i class="fa fa-comments-o" aria-hidden="true"></i> 100</span>      				
+					  </div>
+				   </div>	 
+				</div>
+				<div>
+				</div>
+			 </div>
+		</div>
+		</div>
+  </div>
+  </section>
+  {% include '../components/footer.html' %}
 
+
+  <div class="right-set-box" id='modal-button'><img width="40" src="/images/setting.png"></div> 
+
+  <script src="js/modal.js"></script>
+  
+  </body>
 </html>
