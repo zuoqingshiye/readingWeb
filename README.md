@@ -6,6 +6,12 @@ Main language used in this project: Javascript / HTML / CSS /Bootstrap/  Express
 Two features embedded  to assist elderly reading: speech search (lib: annyang) and font size adjustment.
 Implemented relational/NoSQL database (MySQL/MongoDB) to store user login info.
 
+
+Demo Video on Youtube: 
+
+https://www.youtube.com/watch?v=ksRoI_fml_k
+
+
 <h3>How to implement the app</h3>
 Installation
 use npm to install the dependencies.
